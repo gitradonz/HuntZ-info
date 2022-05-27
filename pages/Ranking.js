@@ -1,12 +1,4 @@
-import {
-  SafeAreaView,
-  FlatList,
-  StyleSheet,
-  StatusBar,
-  View,
-  Text,
-  ActivityIndicator,
-} from "react-native";
+import { SafeAreaView, FlatList, StatusBar, View } from "react-native";
 import { useState, useEffect } from "react";
 import { db } from "../services/firebase";
 import { ref, onValue } from "firebase/database";
@@ -45,7 +37,9 @@ export const Ranking = () => {
     <>
       <ItemsHeader />
       {!loading ? (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView
+          style={{ flex: 1, marginTop: StatusBar.currentHeight || 0 }}
+        >
           <FlatList
             ListHeaderComponent={() => <View style={{ height: 10 }} />}
             data={data}
@@ -59,10 +53,3 @@ export const Ranking = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-});
