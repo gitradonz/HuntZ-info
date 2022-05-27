@@ -4,16 +4,18 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import { Ranking } from "./pages/Ranking";
+
 const { Navigator, Screen } = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Navigator initialRouteName="Home">
-        <Screen name="Home" component={Home} />
-        <Screen name="Profile" component={Profile} />
+      <Navigator initialRouteName="HuntZ">
+        <Screen name="HuntZ" component={Home} />
+        <Screen name="Ranking" component={Ranking} />
       </Navigator>
-      {/* <StatusBar style="auto" /> */}
+      <StatusBar style="auto" />
     </NavigationContainer>
   );
 }
@@ -30,15 +32,7 @@ const styles = StyleSheet.create({
 const Home = () => {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
-    </View>
-  );
-};
-
-const Profile = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Profile</Text>
+      <Text>HuntZ</Text>
     </View>
   );
 };
