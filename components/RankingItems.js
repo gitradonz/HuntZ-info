@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, StatusBar } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  ActivityIndicator,
+} from "react-native";
 
 export const ItemsHeader = () => (
   <View style={styles.itemHeader}>
@@ -13,24 +19,33 @@ export const Item = ({ name, kills }) => (
   </View>
 );
 
+export const LoadingIndicator = () => (
+  <View style={{ marginTop: 20 }}>
+    <ActivityIndicator size="large" color="#09f" />
+  </View>
+);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    paddingLeft: 50,
-    paddingRight: 50,
-    marginVertical: 8,
-    borderRadius: 10,
+    backgroundColor: "#e8eaeb",
+    padding: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    marginVertical: 2,
+    marginHorizontal: 70,
+    borderRadius: 15,
     direction: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
   },
   itemHeader: {
     backgroundColor: "#dcefff",
-    paddingLeft: 50,
-    paddingRight: 50,
+    paddingLeft: 80,
+    paddingRight: 80,
     paddingTop: 10,
     paddingBottom: 10,
     direction: "flex",
@@ -45,5 +60,18 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontFamily: "Trebuchet MS",
+  },
+});
+
+const stylesIndicator = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10,
   },
 });

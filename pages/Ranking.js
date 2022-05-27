@@ -5,12 +5,17 @@ import {
   StatusBar,
   View,
   Text,
+  ActivityIndicator,
 } from "react-native";
 import { useState, useEffect } from "react";
 import { db } from "../services/firebase";
 import { ref, onValue } from "firebase/database";
 
-import { Item, ItemsHeader } from "../components/RankingItems";
+import {
+  Item,
+  ItemsHeader,
+  LoadingIndicator,
+} from "../components/RankingItems";
 
 export const Ranking = () => {
   const [loading, setLoading] = useState(true);
@@ -39,13 +44,18 @@ export const Ranking = () => {
   return (
     <>
       <ItemsHeader />
-      <SafeAreaView style={styles.container}>
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={(item, id) => id}
-        />
-      </SafeAreaView>
+      {!loading ? (
+        <SafeAreaView style={styles.container}>
+          <FlatList
+            ListHeaderComponent={() => <View style={{ height: 10 }} />}
+            data={data}
+            renderItem={renderItem}
+            keyExtractor={(item, id) => id}
+          />
+        </SafeAreaView>
+      ) : (
+        <LoadingIndicator />
+      )}
     </>
   );
 };
