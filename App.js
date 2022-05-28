@@ -5,6 +5,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { Ranking } from "./pages/Ranking";
 import { Home } from "./pages/Home";
+import { Credits } from "./pages/Credits";
 
 const { Navigator, Screen } = createDrawerNavigator();
 
@@ -14,6 +15,7 @@ export default function App() {
       <Navigator initialRouteName="Home">
         <Screen name="Home" component={Home} />
         <Screen name="Ranking" component={Ranking} />
+        <Screen name="Credits" component={Credits} />
       </Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
